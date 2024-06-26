@@ -8,11 +8,10 @@ function App() {
     <>
 
         <div className='container mx-auto w-[1240px]'>
-        <Header/>
-            <Outlet/>
-        <Footer/>
+          <Header/>
+              <Outlet/>
+          <Footer/>
         </div>
-      
 
     </>
   )
