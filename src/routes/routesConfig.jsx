@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import App from '../App/App';
 
 import HomePage from '../pages/HomePage/Home'
+import Contacts from '../pages/СontactsPage/Contacts';
 import Documents from '../pages/DocumentsPage/Documents';
 
 
@@ -19,7 +20,7 @@ export default new createBrowserRouter([
 
             { 
                 path: '/contacts',
-                element: <div>contacts</div>,
+                element: <Contacts/>,
                 errorElement: <div>404 Not Found</div>
             },
 

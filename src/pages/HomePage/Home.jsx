@@ -1,6 +1,6 @@
 const Home = () => {
     return (
-        <div className="border-[1px] px-[40px] pt-[20px] mt-[15px]">
+<div className="border-[1px] px-[40px] pt-[20px] mt-[15px]">
             <h1 
                 className="text-center text-[20px] font-bold">{"Добро пожаловать в внутренний портал ОсОО ШНОС"}</h1>
 
@@ -45,8 +45,8 @@ const Home = () => {
 
 
 
-        
-        </div>
+        
+        </div>
     )
 }
 
