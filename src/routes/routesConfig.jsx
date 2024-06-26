@@ -2,8 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import App from '../App/App';
 
-import Home from '../pages/Home/Home';
-
+import HomePage from '../pages/HomePage/Home'
 
 
 export default new createBrowserRouter([
@@ -13,25 +12,37 @@ export default new createBrowserRouter([
         children: [           
             { 
                 path: '/',
-                element: <Home/>,
+                element: <HomePage/>,
                 errorElement: <div>404 Not Found</div>
             },
 
             { 
-                path: '/about',
-                element: <div>About</div>,
+                path: '/contacts',
+                element: <div>contacts</div>,
                 errorElement: <div>404 Not Found</div>
             },
 
             { 
-                path: '/clients',
-                element: <div>Clients</div>,
+                path: '/bitrix24',
+                element: <div>Bitrix24</div>,
                 errorElement: <div>404 Not Found</div>
             },
 
             { 
-                path: '/info',
-                element: <div>Info</div>,
+                path: '/companyNews',
+                element: <div>CompanyNews</div>,
+                errorElement: <div>404 Not Found</div>
+            },
+
+            { 
+                path: '/documents',
+                element: <div>documents</div>,
+                errorElement: <div>404 Not Found</div>
+            },
+
+            { 
+                path: '/newEmployees',
+                element: <div>newEmployees</div>,
                 errorElement: <div>404 Not Found</div>
             },
 
@@ -40,6 +51,8 @@ export default new createBrowserRouter([
                 element: <div>Station</div>,
                 errorElement: <div>404 Not Found</div>
             },
+
+
             
         ]
 
