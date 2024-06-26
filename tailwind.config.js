@@ -5,13 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    theme: {
-      container: {
-        center: true,
-      },
+    container: {
+      center: true,
     },
-    extend: {},
   },
+
+  extend: {},
   plugins: [],
 }
 

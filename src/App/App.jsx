@@ -7,11 +7,12 @@ function App() {
   return (
     <>
 
-      <Header/>
         <div className='container mx-auto w-[1240px]'>
+        <Header/>
             <Outlet/>
+        <Footer/>
         </div>
-      <Footer/>
+      
 
     </>
   )
