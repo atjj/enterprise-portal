@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 const Header = () => {
     return (
-        <div className="flex justify-around container w-[1240px] h-[50px] border-[1px]  mx-auto py-[10px] text-[20px]">
+        <div className="flex justify-around h-[50px] border-[1px]   py-[10px] text-[20px]">
             <div>
                 <NavLink to = "/"><img src = "" alt = "logo"/></NavLink>
             </div>
