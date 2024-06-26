@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import App from '../App/App';
 
 import HomePage from '../pages/HomePage/Home'
+import Documents from '../pages/DocumentsPage/Documents';
 
 
 export default new createBrowserRouter([
@@ -36,7 +37,7 @@ export default new createBrowserRouter([
 
             { 
                 path: '/documents',
-                element: <div>documents</div>,
+                element: <Documents/>,
                 errorElement: <div>404 Not Found</div>
             },
 

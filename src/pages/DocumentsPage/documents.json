@@ -1,0 +1,29 @@
+[
+    {
+        "id": "1",
+        "name": "Документ 1",
+        "href": "",
+        "icon": "/src/assets/icons/pdf.svg"
+    },
+
+    {
+        "id": "2",
+        "name": "Документ 2",
+        "href": "",
+        "icon": "/src/assets/icons/pdf.svg"
+    },
+
+    {
+        "id": "3",
+        "name": "Документ 3",
+        "href": "",
+        "icon": "/src/assets/icons/pdf.svg"
+    },
+
+    {
+        "id": "4",
+        "name": "Документ 4",
+        "href": "",
+        "icon": "/src/assets/icons//doc.svg"
+    }
+]
