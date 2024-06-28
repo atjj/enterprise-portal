@@ -5,7 +5,7 @@ import App from '../App/App';
 import HomePage from '../pages/HomePage/Home'
 import Contacts from '../pages/СontactsPage/Contacts';
 import Documents from '../pages/DocumentsPage/Documents';
-
+import NewEmployees from '../pages/NewEmployees/NewEmployees';
 
 export default new createBrowserRouter([
     {   
@@ -44,7 +44,7 @@ export default new createBrowserRouter([
 
             { 
                 path: '/newEmployees',
-                element: <div>newEmployees</div>,
+                element: <NewEmployees/>,
                 errorElement: <div>404 Not Found</div>
             },
 
