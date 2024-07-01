@@ -7,10 +7,10 @@ const Documents = () => {
             <h1 className="text-center text-[20px] font-bold">Документы</h1>
 
 
-            <ul>
+            <ul className='px-[100px] mt-[50px]'>
                 {docs.map(({name,icon,href,id}) => 
                     <li className='mt-[20px]' key = {id}> 
-                        <a className='flex gap-[12px] items-center' href = {href}>
+                        <a className='flex gap-[12px] items-center hover:text-green-700' href = {href}>
                             <img className='h-[20px] w-[20px]' src = {icon}/>
                             <span>{name}</span>
                         </a> 
@@ -18,8 +18,6 @@ const Documents = () => {
             </ul>
 
 
-
-        
         </div>
     )
 }
