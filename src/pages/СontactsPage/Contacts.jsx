@@ -1,6 +1,6 @@
 const Contacts = () => {
     return (
-        <div className="border-[1px] px-[40px] pt-[20px] mt-[15px]">
+        <div className="border-[1px] px-[100px] pt-[20px] mt-[15px] min-h-[600px]">
             <h1 
                 className="text-center text-[20px] font-bold">{"Контактная информация"}
             </h1>
@@ -21,15 +21,6 @@ const Contacts = () => {
                     </ul>
 
                     
-                    <h2 className="font-bold">Отдел продаж корпоративным клиентам:</h2>
-                    <ul>
-                        <li>тел: +996 (312) 303 535</li>
-                        <li>тел: +996 (312) 303 303, (доб. 114);</li>
-                        <li>тел: +996 (555) 706 146</li>
-                        <li>тел: +996 (700) 706 146</li>
-                        <li>эл.адрес: talon@bpetroleum.kg</li>
-                    </ul>
-
                     <h2 className="font-bold"> По вопросам касающихся конкурсных торгов и государственных закупок: </h2>
                     <ul>
                         <li>тел: +996 (312) 303 303, (доб. 138)</li>

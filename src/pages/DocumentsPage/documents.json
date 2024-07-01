@@ -25,5 +25,28 @@
         "name": "Документ 4",
         "href": "",
         "icon": "/src/assets/icons//doc.svg"
+    },
+    {
+        "id": "5",
+        "name": "Документ 4",
+        "href": "",
+        "icon": "/src/assets/icons//doc.svg"
+    },
+    {
+        "id": "6",
+        "name": "Документ 4",
+        "href": "",
+        "icon": "/src/assets/icons//doc.svg"
+    },    {
+        "id": "7",
+        "name": "Документ 4",
+        "href": "",
+        "icon": "/src/assets/icons//doc.svg"
+    },
+    {
+        "id": "8",
+        "name": "Документ 1",
+        "href": "",
+        "icon": "/src/assets/icons//doc.svg"
     }
 ]
