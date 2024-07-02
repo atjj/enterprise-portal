@@ -1,12 +1,12 @@
 const Contacts = () => {
     return (
-        <div className="border-[1px] px-[100px] pt-[20px] mt-[15px] min-h-[600px]">
+        <div className="border-[1px] px-[100px] pt-[20px]  min-h-[600px]">
             <h1 
-                className="text-center text-[20px] font-bold">{"Контактная информация"}
+                className="text-center text-[30px] font-bold">{"Контактная информация"}
             </h1>
 
         
-            <div className="text-[18px] mt-[15px] mx-auto flex gap-[60px] pb-[90px]">
+            <div className="text-[18px] mt-[40px] mx-auto flex gap-[60px] pb-[90px]">
 
                 <div className="flex flex-col gap-[20px]">
                     <h2 className="font-bold">Юридический адрес и адрес офиса компании:</h2>

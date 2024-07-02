@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react"; // Import React, useState, and useEffect
+import { useState, useEffect } from "react"; // Import React, useState, and useEffect
 
 const NewEmployees = () => {
-    // Initial array of employees with their details
+
     const initialEmployees = [
         {
             name: "Иван Иванов",
@@ -131,7 +131,7 @@ const NewEmployees = () => {
     };
 
     return (
-        <section className="max-w-5xl mx-auto p-6 bg-white shadow-lg text-center">
+        <section className="border-[1px] px-[100px] pt-[20px] mt-[15px] min-h-[600px] text-center pb-[90px]">
             {/* Main title */}
             <h1 className="text-3xl font-bold text-green-700">Добро пожаловать, новые сотрудники!</h1>
             {/* Introduction paragraph */}

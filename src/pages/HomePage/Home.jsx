@@ -1,10 +1,10 @@
 const Home = () => {
     return (
-        <div className="border-[1px] px-[40px] pt-[20px] mt-[15px] min-h-[600px]">
-            <h1 className="text-center text-[20px] font-bold">{"Добро пожаловать в внутренний портал ОсОО ШНОС"}</h1>
+        <main className="border-[1px] px-[100px] pt-[20px] mt-[15px] min-h-[600px]">
+            <h1 className="text-center text-[30px] font-bold">{"Добро пожаловать в внутренний портал ОсОО ШНОС"}</h1>
 
             
-            <div className="text-[18px] mt-[15px] mx-auto flex flex-col gap-[40px] pb-[90px]">
+            <div className="text-[18px] mt-[40px] mx-auto flex flex-col gap-[40px] pb-[90px]">
             
                 <p>
                     Сеть АЗС &quot;Bishkek Petroleum&quot; (ОсОО «ШНОС») - отечественная нефтяная компания, поставляющая и реализующая высококачественные российские нефтепродукты. &quot;Bishkek Petroleum&quot; ставит перед собой задачу поднять на новый уровень обслуживание потребителей – водителей: создать сеть автозаправочных комплексов, которая позволит, не только заправиться в любой точке северной части Кыргызстана, а также обеспечит высокий уровень сервиса и широкий ассортимент услуг и товаров на АЗС.
@@ -44,7 +44,7 @@ const Home = () => {
 
 
 
-        </div>
+        </main>
     )
 }
 

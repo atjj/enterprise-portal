@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 const News = () => {
     return(
-        <div className="border-[1px] px-[40px] pt-[20px] mt-[15px] text-[18px] pb-[90px] min-h-[600px]">
+        <div className="border-[1px] px-[100px] pt-[20px] mt-[15px] text-[18px] pb-[90px] min-h-[600px]">
             <h1 className="text-center text-[30px] font-bold">Новости компании</h1>
-            <div className="mt-[40px] flex flex-wrap justify-around gap-y-[30px] px-[60px]">
+            <div className="mt-[40px] flex flex-wrap justify-between gap-y-[30px] ">
                 {newsList.map(({id,image,title}) => 
                     <Link key = {id} to = {`/companyNews/${id}`}>
                         <Card key = {id} className="w-[470px]">

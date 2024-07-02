@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+:root {
+    --color-pantone357C: rgb(0,83,40);
+    --color-pantone363C: rgb(51,140,38);
+    --color-pantone362C: rgb(41,153,38);
+    --color-yellow-c: rgb(245,230,23);
+    --color-pantone-7406C: rgb(227,186,18);
+}

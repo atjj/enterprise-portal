@@ -8,6 +8,8 @@ import Documents from '../pages/DocumentsPage/Documents';
 import NewsPage from '../pages/NewsPage/News'
 import NewsComponent from '../pages/NewsPage/NewsComponent';
 import NewEmployees from '../pages/NewEmployees/NewEmployees';
+import Login from '../pages/LoginPage/Login';
+
 
 export default new createBrowserRouter([
     {   
@@ -54,13 +56,16 @@ export default new createBrowserRouter([
                 path: '/station',
                 element: <div>Station</div>,
                 errorElement: <div>404 Not Found</div>
-            },
-
-
-            
+            }
+        
         ]
 
     },
 
+    {
+        path: '/login',
+        element: <Login/>,
+        errorElement: <div>404 Not Found</div>
+    }
 
 ])
