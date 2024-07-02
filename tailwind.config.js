@@ -16,6 +16,6 @@ export default {
   },
 
   extend: {},
-  plugins: [nextui()],
+  plugins: [nextui()]
 }
 

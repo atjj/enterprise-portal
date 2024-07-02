@@ -1,11 +1,21 @@
 import { Link, NavLink } from "react-router-dom";
 import login from '../assets/icons/login.svg'
-/* import mainLogo from '../assets/icons/MainLogo.svg' */
+import { useEffect } from "react";
+
 const Header = () => {
+    useEffect(() => {
+        // Add margin to the body element to prevent content from being overlapped by the fixed header
+        document.body.style.marginTop = '60px'; // Adjust this value to match the header height
+        return () => {
+            // Clean up the margin when the component unmounts
+            document.body.style.marginTop = '0';
+        };
+    }, []);
+
     return (
-        <header className="flex justify-between items-center  h-[60px] border-b-[1px]   py-[10px] text-[20px]">
-            <div className=" flex items-center">
-                <NavLink to = "/"><img src = {""}  alt = "logo"/></NavLink>
+        <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50 flex justify-between h-[60px] border-b-[1px] py-[10px] text-[20px] w-[1240px] mx-auto">
+            <div>
+                <NavLink to="/"><img src="" alt="logo" /></NavLink>
             </div>
 
             <ul className="flex gap-[25px]">
@@ -26,8 +36,7 @@ const Header = () => {
             </button>
             
         </header>
-    )
-}
-
+    );
+};
 
 export default Header;

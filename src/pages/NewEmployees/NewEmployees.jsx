@@ -164,7 +164,7 @@ const NewEmployees = () => {
                 ))}
             </div>
             {/* Buttons to add, remove, and edit employees */}
-            <div className="flex justify-center gap-4 mt-6">
+            <div className="fixed bottom-0 left-0 right-0 bg-white py-4 shadow-inner z-50 flex justify-center gap-4">
                 <button 
                     onClick={handleAddButtonClick} 
                     className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600"
