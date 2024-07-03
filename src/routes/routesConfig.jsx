@@ -9,13 +9,21 @@ import NewsPage from '../pages/NewsPage/News'
 import NewsComponent from '../pages/NewsPage/NewsComponent';
 import NewEmployees from '../pages/NewEmployees/NewEmployees';
 import Login from '../pages/LoginPage/Login';
+import AdminPage from '../pages/AdminPage/Admin';
 
 
 export default new createBrowserRouter([
     {   
         element: <App/>,
         errorElement: <div>404 Not Found</div>,
-        children: [           
+        children: [ 
+            {
+                path: '/admin',
+                element: <AdminPage/>,
+                errorElement: <div>404 Not Found</div>,
+
+            },  
+                    
             { 
                 path: '/',
                 element: <HomePage/>,

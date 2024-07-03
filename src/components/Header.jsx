@@ -1,19 +1,24 @@
 import { Link, NavLink } from "react-router-dom";
 import login from '../assets/icons/login.svg'
 import { useEffect } from "react";
+import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Avatar} from "@nextui-org/react";
+
+
 
 const Header = () => {
+
     useEffect(() => {
-        // Add margin to the body element to prevent content from being overlapped by the fixed header
-        document.body.style.marginTop = '60px'; // Adjust this value to match the header height
+        
+        document.body.style.marginTop = '60px'; 
         return () => {
-            // Clean up the margin when the component unmounts
             document.body.style.marginTop = '0';
         };
+
     }, []);
 
     return (
-        <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50 flex justify-between h-[60px] border-b-[1px] py-[10px] text-[20px] w-[1240px] mx-auto">
+
+        <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50 flex justify-around h-[60px] border-b-[1px] py-[10px] text-[20px] w-[1240px] mx-auto">
             <div>
                 <NavLink to="/"><img src="" alt="logo" /></NavLink>
             </div>
@@ -30,9 +35,27 @@ const Header = () => {
 
             
             <button className="w-[30px] h-[30px]">
-                <Link to = "/login">
+                <Dropdown placement="bottom-end">
+                    <DropdownTrigger>
+                            <Avatar
+                                isBordered
+                                as="button"
+                                className="transition-transform"
+                                src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+                            />
+                    </DropdownTrigger>
+                <DropdownMenu aria-label="profile" variant="flat">
+                    <DropdownItem key="profile">
+                        <Link to = "/admin">Профиль</Link>
+                    </DropdownItem>
+                    <DropdownItem key="logout" color="danger">
+                        <Link to = "/">Выйти</Link>
+                    </DropdownItem>
+                </DropdownMenu>
+                </Dropdown>
+{/*                 <Link to = "/login">
                      <img src = {login}/>
-                </Link>
+                </Link> */}
             </button>
             
         </header>
