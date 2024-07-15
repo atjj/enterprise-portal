@@ -1,7 +1,7 @@
-/* import { Link, NavLink } from "react-router-dom"; */
+import { Link, NavLink } from "react-router-dom";
 /* import login from '../assets/icons/login.svg'; */
 import mainlogo from '../assets/icons/mainlogo.png';
-import {Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem, Link, Button,Image} from "@nextui-org/react";
+import {Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem,Button,Image} from "@nextui-org/react";
 import { useEffect,useState} from "react";
 import {
     Dropdown,
@@ -27,25 +27,74 @@ const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const menuItems = [
-      "Главная",
-      "Контакты",
-      "Новости компании",
-      "Документы",
-      "Новые сотрудники",
-      "АЗС",
+      {
+        id: "home",
+        title:"Главная",
+        href: "/"
+      },
+      {
+        id: "contacts",
+        title: "Контакты",
+        childrens: [
+            {
+                id: "office",
+                title: "Офис",
+                href: "/contacts/office-contacts"
+            },
+            {
+                id: "stations",
+                title: "АЗС",
+                href: "/contacts/station-contacts"
+            },
+            {
+                id: "oildepots",
+                title: "Нефтебаза",
+                href: "/contacts/oil-depot-contacts"
+            },
+        ] 
+      },
+      {
+        id: "companyNews",
+        title:"Новости компании",
+        href: "/companyNews"
+
+      },
+      {
+        id: "documents",
+        title: "Документы",
+        href: "/documents"
+
+      },
+      {
+        id: "newEmployees",
+        title: "Новые сотрудники",
+        href: "/newEmployees"
+
+      },
+      {
+        id: "stations",
+        title: "АЗС",
+        href: "/station"
+      },
+      {
+        id: "bitrix",
+        title: "Bitrix24",
+        href: "https://www.bitrix24.ru"
+      }
     ];
 
 
 
     return (
 
-        <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50 flex justify-between items-center h-[60px] border-b-[1px] py-[10px] text-[20px] w-full px-4 md:px-8 md:justify-around lg:px-0 lg:w-[1240px] mx-auto">
+        <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50 flex justify-between items-center h-[60px] border-b-[1px] py-[10px] w-full px-4 md:px-8 md:justify-around lg:px-0 lg:w-[1240px] mx-auto">
 
 
             <Navbar
                 isBordered
                 isMenuOpen={isMenuOpen}
                 onMenuOpenChange={setIsMenuOpen}
+
                 >
                 <NavbarContent className="sm:hidden" justify="start">
                     <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
@@ -54,71 +103,68 @@ const Header = () => {
                 <NavbarContent className="sm:hidden pr-3" justify="center">
                     <NavbarBrand>
                         <Image
-                            src= {mainlogo}
-                            width={60}
+                            src = {mainlogo}
+                            width = {60}
 
                         />
-
                     </NavbarBrand>
                 </NavbarContent>
 
-                <NavbarContent className="hidden sm:flex gap-4" justify="center">
+                <NavbarContent className="hidden sm:flex gap-4" justify = "center">
                     <NavbarBrand>
                         <Image
                             src= {mainlogo}
                             width={60}
                             />        
                     </NavbarBrand>
-                    <NavbarItem >
-                        <Link color="foreground" href="#" className='text-[20px]'>
-                            Главная
-                        </Link>
-                    </NavbarItem>
-                    <NavbarItem>
-                        <Link href="#" aria-current="page" className='text-[20px]'>
-                            Контакты
-                        </Link>
-                    </NavbarItem>
-                    <NavbarItem>
-                        <Link color="foreground" href="#" className='text-[20px]'>
-                            Новости компании
-                        </Link>
-                    </NavbarItem>
-                    <NavbarItem>
-                        <Link color="foreground" href="#" className='text-[20px]'>
-                            Документы
-                        </Link>
-                    </NavbarItem>
-                    <NavbarItem>
-                        <Link color="foreground" href="#" className='text-[20px]'>
-                            Новые сотрудники
-                        </Link>
-                    </NavbarItem>
 
-                    <NavbarItem>
-                        <Link color="foreground" href="#" className='text-[20px]'>
-                            АЗС
-                        </Link>
-                    </NavbarItem>
+                    {menuItems.map((item,index) => {
+                        return (
+                            <NavbarItem key = {index}>
+
+                                {item.title == "Контакты" ? (
+                                    <Dropdown className="rounded-none">
+                                        <DropdownTrigger className="cursor-pointer hover:bg-gray-100 hover:text-green-700 rounded-full px-3 py-1 transition-all duration-300 ease-in-out text-[20px]">
+                                                {item.title}
+                                        </DropdownTrigger>
+                                            <DropdownMenu aria-label="Actions">
+                                                {item.childrens.map(({id,title,href}) => <DropdownItem key={id} textValue = {title}><NavLink to = {href} className = "text-[16px] hover:text-green-700">{title}</NavLink></DropdownItem>)}
+                                            </DropdownMenu>
+                                    </Dropdown>
+                                ) : (<NavLink to = {item.href} className = {({ isActive }) => `${isActive ? 'bg-gray-100 text-green-700 rounded-full px-3 py-1 transition-all duration-300 ease-in-out' : 'hover:bg-gray-100 hover:text-green-700 rounded-full px-3 py-1 transition-all duration-300 ease-in-out'} text-[20px]`}>{item.title}</NavLink>)}
+                            </NavbarItem>
+                        )
+                    })}
                 </NavbarContent>
 
 
 
                 <NavbarMenu>
                     {menuItems.map((item, index) => (
-                    <NavbarMenuItem key={`${item}-${index}`}>
-                        <Link
-                        className="w-full"
-                        color= "foreground"
-                        href="#"
-                        size="lg"
-                        >
-                        {item}
-                        </Link>
-                    </NavbarMenuItem>
+                        <NavbarMenuItem key={`${item.title}-${index}`}>
+                            <Link
+                                className = "w-full"
+                                color = "foreground"
+                                to = {item.href}
+                                size = "lg"
+                            >
+                                {item.title}
+                            </Link>
+                        </NavbarMenuItem>
                     ))}
                 </NavbarMenu>
                 </Navbar>
+
+            
+        </header>
+    );
+};
+
+export default Header;
+
+
+
+
 {/*             <div className="w-[80px]">
                 <NavLink to="/"><img src={mainlogo} alt="logo" /></NavLink>
             </div>
@@ -156,9 +202,3 @@ const Header = () => {
                      <img src = {login}/>
                 </Link>
             </button> */}
-            
-        </header>
-    );
-};
-
-export default Header;
