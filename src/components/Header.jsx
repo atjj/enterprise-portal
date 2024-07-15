@@ -1,6 +1,7 @@
-import { Link, NavLink } from "react-router-dom";
-import login from '../assets/icons/login.svg';
+/* import { Link, NavLink } from "react-router-dom"; */
+/* import login from '../assets/icons/login.svg'; */
 import mainlogo from '../assets/icons/mainlogo.png';
+import {Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem, Link, Button,Image} from "@nextui-org/react";
 import { useEffect,useState} from "react";
 import {
     Dropdown,
@@ -21,25 +22,114 @@ const Header = () => {
 
     }, []);
 
-    const [isOpen, setIsOpen] = useState(false);
+/*     const [isOpen, setIsOpen] = useState(false);
+ */
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+    const menuItems = [
+      "Главная",
+      "Контакты",
+      "Новости компании",
+      "Документы",
+      "Новые сотрудники",
+      "АЗС",
+    ];
 
 
 
     return (
 
-        <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50 flex justify-around items-center h-[60px] border-b-[1px] py-[10px] text-[20px] w-[1240px] mx-auto">
-            <div className="w-[80px]">
+        <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50 flex justify-between items-center h-[60px] border-b-[1px] py-[10px] text-[20px] w-full px-4 md:px-8 md:justify-around lg:px-0 lg:w-[1240px] mx-auto">
+
+
+            <Navbar
+                isBordered
+                isMenuOpen={isMenuOpen}
+                onMenuOpenChange={setIsMenuOpen}
+                >
+                <NavbarContent className="sm:hidden" justify="start">
+                    <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
+                </NavbarContent>
+
+                <NavbarContent className="sm:hidden pr-3" justify="center">
+                    <NavbarBrand>
+                        <Image
+                            src= {mainlogo}
+                            width={60}
+
+                        />
+
+                    </NavbarBrand>
+                </NavbarContent>
+
+                <NavbarContent className="hidden sm:flex gap-4" justify="center">
+                    <NavbarBrand>
+                        <Image
+                            src= {mainlogo}
+                            width={60}
+                            />        
+                    </NavbarBrand>
+                    <NavbarItem >
+                        <Link color="foreground" href="#" className='text-[20px]'>
+                            Главная
+                        </Link>
+                    </NavbarItem>
+                    <NavbarItem>
+                        <Link href="#" aria-current="page" className='text-[20px]'>
+                            Контакты
+                        </Link>
+                    </NavbarItem>
+                    <NavbarItem>
+                        <Link color="foreground" href="#" className='text-[20px]'>
+                            Новости компании
+                        </Link>
+                    </NavbarItem>
+                    <NavbarItem>
+                        <Link color="foreground" href="#" className='text-[20px]'>
+                            Документы
+                        </Link>
+                    </NavbarItem>
+                    <NavbarItem>
+                        <Link color="foreground" href="#" className='text-[20px]'>
+                            Новые сотрудники
+                        </Link>
+                    </NavbarItem>
+
+                    <NavbarItem>
+                        <Link color="foreground" href="#" className='text-[20px]'>
+                            АЗС
+                        </Link>
+                    </NavbarItem>
+                </NavbarContent>
+
+
+
+                <NavbarMenu>
+                    {menuItems.map((item, index) => (
+                    <NavbarMenuItem key={`${item}-${index}`}>
+                        <Link
+                        className="w-full"
+                        color= "foreground"
+                        href="#"
+                        size="lg"
+                        >
+                        {item}
+                        </Link>
+                    </NavbarMenuItem>
+                    ))}
+                </NavbarMenu>
+                </Navbar>
+{/*             <div className="w-[80px]">
                 <NavLink to="/"><img src={mainlogo} alt="logo" /></NavLink>
             </div>
 
-            <button className="lg:hidden" onClick={() => setIsOpen(!isOpen)}>
+            <button className="inline-block md:hidden" onClick={() => setIsOpen(!isOpen)}>
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}></path>
                 </svg>
             </button>
 
-            <ul  className={`lg:flex gap-[25px] items-center ${isOpen ? 'block' : 'hidden'}`}>
+            <ul className={`fixed p-[10px] md:relative top-[60px] md:top-[0px] left-0 right-0 bg-white md:bg-transparent shadow-md md:shadow-none md:flex gap-[25px] items-center transition-transform duration-300 ease-in-out ${isOpen ? 'transform translate-x-0' : 'transform -translate-x-full md:translate-x-0'}`}>
                 <li><NavLink to="/" className={({ isActive }) => `${isActive ? 'bg-gray-100 text-green-700 rounded-full px-3 py-1 transition-all duration-300 ease-in-out' : 'hover:bg-gray-100 hover:text-green-700 rounded-full px-3 py-1 transition-all duration-300 ease-in-out'}`}>Главная</NavLink></li>
                 <li>
                     <Dropdown className="rounded-none ">
@@ -58,14 +148,14 @@ const Header = () => {
                 <li><NavLink to = "/newEmployees" className={({ isActive }) => `${isActive ? 'bg-gray-100 text-green-700 rounded-full px-3 py-1 transition-all duration-300 ease-in-out' : 'hover:bg-gray-100 hover:text-green-700 rounded-full px-3 py-1 transition-all duration-300 ease-in-out'}`}>Новые сотрудники</NavLink></li>
                 <li><NavLink to = "/station" className={({ isActive }) => `${isActive ? 'bg-gray-100 text-green-700 rounded-full px-3 py-1 transition-all duration-300 ease-in-out' : 'hover:bg-gray-100 hover:text-green-700 rounded-full px-3 py-1 transition-all duration-300 ease-in-out'}`}>АЗС</NavLink></li> 
                 <li><a href = "https://www.bitrix24.ru" className = "hover:bg-gray-100 hover:text-green-700 rounded-full px-3 py-1 transition-all duration-300 ease-in-out" target="_blank">Bitrix24</a></li>               
-            </ul>
+            </ul> */}
 
             
-            <button className="w-[30px] h-[30px]">
+{/*             <button className="w-[30px] h-[30px]">
                 <Link to = "/login">
                      <img src = {login}/>
                 </Link>
-            </button>
+            </button> */}
             
         </header>
     );
