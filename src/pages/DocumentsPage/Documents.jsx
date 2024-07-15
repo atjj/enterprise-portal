@@ -3,7 +3,7 @@ import docs from './documents.json';
 
 const Documents = () => {
     return (
-        <div className="border-[1px] px-[100px] pt-[20px]  text-[18px] pb-[90px] min-h-[600px]">
+        <section className="border-[1px] px-[100px] pt-[20px]  text-[18px] pb-[90px] min-h-[600px]">
             <h1 className="text-center text-[30px] font-bold">Документы</h1>
 
 
@@ -18,7 +18,7 @@ const Documents = () => {
             </ul>
 
 
-        </div>
+        </section>
     )
 }
 
