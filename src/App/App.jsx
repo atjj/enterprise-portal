@@ -9,7 +9,7 @@ function App() {
   return (
     <>
 
-        <div className='flex  flex-col justify-between  min-h-screen container mx-auto w-[1240px]'>
+        <div className='flex flex-col justify-between  min-h-screen container mx-auto max-w-[640px] md:max-w-[1024px] lg:max-w-[1240px]'>
           <Header/>
                 <Outlet/>
           <Footer/>

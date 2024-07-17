@@ -1,34 +1,34 @@
 [
     {
         "id": "1",
-        "name": "Документ 1",
+        "name": "Документ 1Документ1Документ 1",
         "href": "",
         "icon": "/src/assets/icons/pdf.svg"
     },
 
     {
         "id": "2",
-        "name": "Документ 2",
+        "name": "Документ 2Документ1Документ1",
         "href": "",
         "icon": "/src/assets/icons/pdf.svg"
     },
 
     {
         "id": "3",
-        "name": "Документ 3",
+        "name": "Документ3Документ1Документ1",
         "href": "",
         "icon": "/src/assets/icons/pdf.svg"
     },
 
     {
         "id": "4",
-        "name": "Документ 4",
+        "name": "Документ4Документ1Документ1",
         "href": "",
         "icon": "/src/assets/icons//doc.svg"
     },
     {
         "id": "5",
-        "name": "Документ 4",
+        "name": "Документ 4 Документ 1 Документ 1",
         "href": "",
         "icon": "/src/assets/icons//doc.svg"
     },

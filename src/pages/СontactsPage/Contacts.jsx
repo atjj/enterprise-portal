@@ -127,7 +127,7 @@ const Contacts = () => {
 
 
     return (
-        <section className="border-[1px] px-[100px] pt-[20px]  min-h-[600px]">
+        <section className="px-[100px] pt-[20px]  min-h-[600px]">
             <h1 
                 className="text-center text-[30px] font-bold">{"Контактная информация"}
             </h1>

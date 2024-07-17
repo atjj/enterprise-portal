@@ -16,11 +16,9 @@ const NewsComponent = () => {
     console.log("postById:",postById)
 
     return (
-        <section className="border-[1px] px-[20px] pt-[20px] mt-[15px] text-[18px] pb-[90px] min-h-[600px]">
+        <section className="px-[20px] pt-[20px] mt-[15px] text-[18px] pb-[90px] min-h-[600px]">
 
-
-
-            <div className='max-w-[700px] mx-auto mt-[30px]'>
+            <div className='max-w-[700px] mx-auto mt-[5px] sm:mt-[30px]'>
             <LinkBack/>
             <h1 className="text-start text-[30px]  max-w-[700px] mx-auto mt-[20px]  font-bold">
                 {postById && postById.title?.rendered}

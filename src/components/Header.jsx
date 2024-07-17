@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 /* import login from '../assets/icons/login.svg'; */
 import mainlogo from '../assets/icons/mainlogo.png';
-import {Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem,Button,Image} from "@nextui-org/react";
+import {Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem,Image} from "@nextui-org/react";
 import { useEffect,useState} from "react";
 import {
     Dropdown,
@@ -88,7 +88,7 @@ const Header = () => {
 
     return (
 
-        <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50 flex justify-between items-center h-[60px] border-b-[1px] py-[10px] w-full px-4 md:px-8 md:justify-around lg:px-0 lg:w-[1240px] mx-auto">
+        <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50 flex justify-between items-center h-[60px] border-b-[1px] py-[10px] w-full px-4 md:px-8 md:justify-around  lg:px-0 lg:w-[1240px]   mx-auto">
 
 
             <Navbar
@@ -97,21 +97,21 @@ const Header = () => {
                 onMenuOpenChange={setIsMenuOpen}
 
                 >
-                <NavbarContent className="sm:hidden" justify="start">
+                <NavbarContent className="md:hidden" justify="start">
                     <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
                 </NavbarContent>
 
-                <NavbarContent className="sm:hidden pr-3" justify="center">
+                <NavbarContent  justify="center">
                     <NavbarBrand>
                         <Image
                             src = {mainlogo}
-                            width = {60}
+                            width = {100}
 
                         />
                     </NavbarBrand>
                 </NavbarContent>
 
-                <NavbarContent className="hidden sm:flex gap-4" justify = "center">
+                <NavbarContent className="hidden md:flex gap-[6px]" justify = "center">
                     <NavbarBrand>
                         <Image
                             src= {mainlogo}

@@ -1,8 +1,8 @@
 import {Card,CardBody,Image} from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import unknownImage from '../../assets/Unknown.jpg'
-
+/* import unknownImage from '../../assets/Unknown.jpg'
+ */
 import {Accordion, AccordionItem} from "@nextui-org/react";
 
 const NewEmployees = () => {
@@ -16,7 +16,7 @@ const NewEmployees = () => {
 
     console.log(employees)
     return (
-        <section className="border-[1px] px-[100px] pt-[20px] mt-[15px] min-h-[600px] text-center pb-[90px]">
+        <section className="px-[25px] sm:px-[100px] pt-[20px] mt-[15px] min-h-[600px] text-center pb-[90px]">
 
             <h1 className="text-3xl font-bold text-green-700">Добро пожаловать, новые сотрудники!</h1>
 
@@ -24,21 +24,21 @@ const NewEmployees = () => {
                 Мы рады представить вам наших новых коллег. Узнайте о них больше ниже.
             </p>
 
-            <div className="mt-[25px] flex gap-[26px] flex-wrap">
+            <div className="mt-[25px] flex flex-col gap-[26px] ">
 
                 {employees.map((employee) => 
-                        <Card key={employee.id} className="w-[100%] rounded-none">
+                        <Card key={employee.id} className="w-[100%]  rounded-none">
                             <CardBody>
-                                <div className="flex gap-[70px]">
+                                <div className="flex flex-col sm:flex-row sm:gap-[70px]">
                                     <Image
                                         alt = "employee_image"
-                                        className = "object-cover rounded-none"
-                                        src = {unknownImage}
-                                        width = {180}
+                                        className = "object-cover rounded-none max-h-[180px] w-[100%] "
+                                        src = "https://nextui.org/images/card-example-4.jpeg"
+                                        
                                     />
                                     
-                                    <div className="py-[22px] w-[700px]">
-                                        <ul className="text-[20px]">
+                                    <div className="py-[22px] sm:w-[700px]">
+                                        <ul className="sm:text-[20px]">
                                             <li className="mt-[5px]">
                                                 <span className="font-bold mr-[10px]">Ф.И.О:</span>
                                                     {`${employee.acf.name} ${employee.acf.lastname} ${employee.acf.patronym}`}
@@ -59,7 +59,7 @@ const NewEmployees = () => {
 
                                         <div className="mt-[20px]">
                                             <Accordion className="p-[0px]">
-                                                <AccordionItem key="1" aria-label="Accordion 1" title="Описание:" className="text-[18px] p-[2px] w-[100%]"
+                                                <AccordionItem key="1" aria-label="Accordion 1" title="Описание:" className="text-[15px] sm:text-[18px] p-[2px] w-[100%]"
                                                 >
                                                     {employee.acf.description}
                                                 </AccordionItem>
