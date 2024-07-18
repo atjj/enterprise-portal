@@ -1,5 +1,7 @@
 const Home = () => {
+
     return (
+        
         <main className="px-[25px] sm:px-[100px] pt-[20px] mt-[15px] min-h-[600px]">
             <h1 className="text-center text-[30px] font-bold">{"Добро пожаловать в внутренний портал ОсОО ШНОС"}</h1>
 

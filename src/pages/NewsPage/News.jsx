@@ -1,19 +1,24 @@
 import {Card,CardBody} from "@nextui-org/react";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import { getNews } from "../../utils/fetchData";
 const News = () => {
 
     const [posts,setPosts] = useState([]);
 
 
+    const fetchData = async () => {
+
+        const data = await getNews();
+        setPosts(data);
+
+    }
+
+
     useEffect(() => {
-        axios.get('http://localhost/wordpress/wp-json/wp/v2/posts').then(res => { setPosts(res.data)});
-            
-    
+        fetchData();
     },[])
 
-    console.log("posts:",posts)
 
     return(
         <section className="px-[25px] sm:px-[100px] sm:pt-[20px] mt-[15px] sm:text-[18px] pb-[90px] min-h-[600px]">

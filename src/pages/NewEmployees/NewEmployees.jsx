@@ -1,20 +1,29 @@
 import {Card,CardBody,Image} from "@nextui-org/react";
 import { useEffect, useState } from "react";
-import axios from "axios";
 /* import unknownImage from '../../assets/Unknown.jpg'
  */
 import {Accordion, AccordionItem} from "@nextui-org/react";
+import { getNewEmployees } from "../../utils/fetchData";
 
 const NewEmployees = () => {
 
     const [employees, setEmployees] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost/wordpress/wp-json/wp/v2/new-employees').then(res => { setEmployees(res.data)});
+
+        const fetchData = async ( ) => {
+            const data = await getNewEmployees();
+
+            setEmployees(data);
+        }
+
+        fetchData();
+
     },[])
 
 
     console.log(employees)
+
     return (
         <section className="px-[25px] sm:px-[100px] pt-[20px] mt-[15px] min-h-[600px] text-center pb-[90px]">
 

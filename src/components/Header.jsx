@@ -3,12 +3,9 @@ import { Link, NavLink } from "react-router-dom";
 import mainlogo from '../assets/icons/mainlogo.png';
 import {Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem,Image} from "@nextui-org/react";
 import { useEffect,useState} from "react";
-import {
-    Dropdown,
-    DropdownTrigger,
-    DropdownMenu,
-    DropdownItem,
+import { Dropdown, DropdownTrigger, DropdownMenu,DropdownItem,
   } from "@nextui-org/react";
+import { menuItems } from "../constants";
 
 
 const Header = () => {
@@ -22,67 +19,10 @@ const Header = () => {
 
     }, []);
 
-/*     const [isOpen, setIsOpen] = useState(false);
- */
+
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const menuItems = [
-      {
-        id: "home",
-        title:"Главная",
-        href: "/"
-      },
-      {
-        id: "contacts",
-        title: "Контакты",
-        childrens: [
-            {
-                id: "office",
-                title: "Офис",
-                href: "/contacts/office-contacts"
-            },
-            {
-                id: "stations",
-                title: "АЗС",
-                href: "/contacts/station-contacts"
-            },
-            {
-                id: "oildepots",
-                title: "Нефтебаза",
-                href: "/contacts/oil-depot-contacts"
-            },
-        ] 
-      },
-      {
-        id: "companyNews",
-        title:"Новости компании",
-        href: "/companyNews"
 
-      },
-      {
-        id: "documents",
-        title: "Документы",
-        href: "/documents"
-
-      },
-      {
-        id: "newEmployees",
-        title: "Новые сотрудники",
-        href: "/newEmployees"
-
-      },
-      
-      {
-        id: "stations",
-        title: "АЗС",
-        href: "/station"
-      },
-      {
-        id: "bitrix",
-        title: "Bitrix24",
-        href: "https://www.bitrix24.ru"
-      }
-    ];
 
 
 
@@ -103,20 +43,24 @@ const Header = () => {
 
                 <NavbarContent  justify="center">
                     <NavbarBrand>
-                        <Image
-                            src = {mainlogo}
-                            width = {100}
+                        <Link to = "/">
+                            <Image
+                                src = {mainlogo}
+                                width = {100}
 
-                        />
+                            />
+                        </Link>
                     </NavbarBrand>
                 </NavbarContent>
 
                 <NavbarContent className="hidden md:flex gap-[6px]" justify = "center">
                     <NavbarBrand>
-                        <Image
-                            src= {mainlogo}
-                            width={60}
-                            />        
+                        <Link to = "/">
+                            <Image
+                                src= {mainlogo}
+                                width={60}
+                                />
+                        </Link>        
                     </NavbarBrand>
 
                     {menuItems.map((item,index) => {
