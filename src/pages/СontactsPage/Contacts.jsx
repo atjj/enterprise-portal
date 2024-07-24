@@ -4,8 +4,9 @@ import { useParams } from "react-router";
 import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue} from "@nextui-org/react";
 import { getContacts } from "../../utils/fetchData";
 
+import {columnsOildepot,columnsStation } from "../../constants";
+import SearchInput from "../../components/SearchInput";
 
-import { columnsOffice,columnsOildepot,columnsStation } from "../../constants";
 
 
 
@@ -14,18 +15,21 @@ const Contacts = () => {
     const {title} = useParams();
     const [contacts,setContacts] = useState([]);
     const [columns,setColumns] = useState([{key: "",label: ""}]);
+    const [searchInput,setSearchInput] = useState('');
+
+
+    const handleSearchInput = (e) => {
+        setSearchInput(e.target.value);
+    }
+
+    const fetchData = async (title) => {
+        const data = await getContacts(title);
+        setContacts(data);
+
+    }
     
     useEffect(() => {
-
-        const fetchData = async (title) => {
-            const data = await getContacts(title);
-            setContacts(data);
-
-        }
-
-        if(title == 'office-contacts')
-            setColumns(columnsOffice)
-        else if (title == 'station-contacts')
+        if (title == 'station-contacts')
             setColumns(columnsStation)
         else if (title == 'oil-depot-contacts')
             setColumns(columnsOildepot)
@@ -37,6 +41,20 @@ const Contacts = () => {
     
     },[title])
 
+    console.log(contacts)
+
+
+    const filteredContacts = (contacts) => {
+        return contacts.filter(item =>
+            item.id.toLowerCase().includes(searchInput.toLowerCase()) ||
+            item.manager_fullname.toLowerCase().includes(searchInput.toLowerCase()) ||
+            item.mobile_phone.toLowerCase().includes(searchInput.toLowerCase())    ||
+            item.email.toLowerCase().includes(searchInput.toLowerCase())
+        );
+    };
+
+
+
 
 
     return (
@@ -44,23 +62,25 @@ const Contacts = () => {
             <h1 
                 className="text-center text-[30px] font-bold">{"Контактная информация"}
             </h1>
+            
+            <SearchInput 
+                searchInput={searchInput}
+                handleSearchInput={handleSearchInput}
+            />
 
-            <div className="text-[18px] mt-[40px] mx-auto flex gap-[60px] pb-[90px]">
-
-                    
+            <div className="text-[18px] mt-[20px] mx-auto flex gap-[60px] pb-[90px]"> 
                 <Table aria-label="Example table with dynamic content" radius = "none">
-                    <TableHeader columns={columns}>
+                    <TableHeader columns = {columns}>
                         {(column) => <TableColumn  key={column.key} className="text-[16px]">{column.label}</TableColumn>}
                     </TableHeader>
-                    <TableBody items={contacts}>
+                    <TableBody items={filteredContacts(contacts)}>
                             {(item) => (
                                 <TableRow key={item.key}>
                                     {(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}
                                 </TableRow>
                         )}
                     </TableBody>
-                </Table>
-
+                </Table>               
             </div>
 
     </section>

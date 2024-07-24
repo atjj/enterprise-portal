@@ -11,7 +11,7 @@ export const menuItems = [
           {
               id: "office",
               title: "Офис",
-              href: "/contacts/office-contacts"
+              href: "/office-contacts"
           },
           {
               id: "stations",
@@ -60,7 +60,7 @@ export const menuItems = [
 
   export const columnsStation = [
     {
-        key: "station_id",
+        key: "id",
         label: "Номер АЗС"
     },
     {
@@ -72,14 +72,14 @@ export const menuItems = [
         label: "Мобильный телефон"
     },
     {
-        key: "station_email",
+        key: "email",
         label: "Почта АЗС"
     }
   ];
 
   export const columnsOildepot = [
     {
-        key: "depot_id",
+        key: "id",
         label: "Номер Нефтебазы"
     },
     {
@@ -91,7 +91,7 @@ export const menuItems = [
         label: "Мобильный телефон"
     },
     {
-        key: "depot_email",
+        key: "email",
         label: "Почта Нефтебазы"
     }
   ];

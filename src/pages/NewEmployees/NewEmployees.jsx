@@ -27,7 +27,7 @@ const NewEmployees = () => {
     return (
         <section className="px-[25px] sm:px-[100px] pt-[20px] mt-[15px] min-h-[600px] text-center pb-[90px]">
 
-            <h1 className="text-3xl font-bold text-green-700">Добро пожаловать, новые сотрудники!</h1>
+            <h1 className="text-3xl font-bold">Добро пожаловать, новые сотрудники!</h1>
 
             <p className="text-lg text-gray-600 mt-4">
                 Мы рады представить вам наших новых коллег. Узнайте о них больше ниже.

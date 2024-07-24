@@ -9,4 +9,32 @@
     --color-pantone362C: rgb(41,153,38);
     --color-yellow-c: rgb(245,230,23);
     --color-pantone-7406C: rgb(227,186,18);
+
+
+    
+    --color-green-bold: #006632;
+    --color-green-semibold: #008822;
+    --color-green-medium: #11AB1A;
+    --color-green-thin: #77C14F;
+
+    --color-yellow-bold: #FBC800;
+    --color-yellow-medium: #FAE116;
+
+    --color-graphite: #606163;
+    
+    --color-grey: #D2D4D5;
+    --color-grey-thin: #E6E7E8;
+
+
+
+
 }
+
+
+
+@layer base {
+    html {
+      font-family: "Helvetica";
+      background-color: var(--color-grey-thin);
+    }
+  }

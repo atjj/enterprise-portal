@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 /* import login from '../assets/icons/login.svg'; */
 import mainlogo from '../assets/icons/mainlogo.png';
 import {Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem,Image} from "@nextui-org/react";
-import { useEffect,useState} from "react";
+import {useState} from "react";
 import { Dropdown, DropdownTrigger, DropdownMenu,DropdownItem,
   } from "@nextui-org/react";
 import { menuItems } from "../constants";
@@ -10,14 +10,6 @@ import { menuItems } from "../constants";
 
 const Header = () => {
 
-    useEffect(() => {
-        
-        document.body.style.marginTop = '60px'; 
-        return () => {
-            document.body.style.marginTop = '0';
-        };
-
-    }, []);
 
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -28,7 +20,7 @@ const Header = () => {
 
     return (
 
-        <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50 flex justify-between items-center h-[60px] border-b-[1px] py-[10px] w-full px-4 md:px-8 md:justify-around  lg:px-0 lg:w-[1240px]   mx-auto">
+        <header className="sticky top-0 left-0 right-0 bg-white shadow-md z-50 flex justify-between items-center h-[60px] border-b-[1px] py-[10px] w-full px-4 md:px-8 md:justify-around  lg:px-0 lg:w-[1240px] mx-auto ">
 
 
             <Navbar
@@ -76,7 +68,7 @@ const Header = () => {
                                                 {item.childrens.map(({id,title,href}) => <DropdownItem key={id} textValue = {title}><NavLink to = {href} className = "text-[16px] hover:text-green-700">{title}</NavLink></DropdownItem>)}
                                             </DropdownMenu>
                                     </Dropdown>
-                                ) : (<NavLink to = {item.href} className = {({ isActive }) => `${isActive ? 'bg-gray-100 text-green-700 rounded-full px-3 py-1 transition-all duration-300 ease-in-out' : 'hover:bg-gray-100 hover:text-green-700 rounded-full px-3 py-1 transition-all duration-300 ease-in-out'} text-[20px]`}>{item.title}</NavLink>)}
+                                ) : (<NavLink to = {item.href} className = {({ isActive }) => `${isActive ? 'text-[var(--color-green-bold)] bg-[var(--color-yellow-medium)] text-green-700 rounded-full px-3 py-1 transition-all duration-300 ease-in-out' : 'hover:bg-gray-100 hover:text-green-700 rounded-full px-3 py-1 transition-all duration-300 ease-in-out'} text-[20px]`}>{item.title}</NavLink>)}
                             </NavbarItem>
                         )
                     })}

@@ -9,6 +9,7 @@ import NewsPage from '../pages/NewsPage/News'
 import NewsComponent from '../pages/NewsPage/NewsComponent';
 import NewEmployees from '../pages/NewEmployees/NewEmployees';
 import Login from '../pages/LoginPage/Login';
+import OfficeContacts from '../pages/СontactsPage/OfficeContacts';
 
 
 export default new createBrowserRouter([
@@ -25,6 +26,12 @@ export default new createBrowserRouter([
             { 
                 path: '/contacts/:title',
                 element: <Contacts/>,
+                errorElement: <div>404 Not Found</div>
+            },
+
+            { 
+                path: '/office-contacts',
+                element: <OfficeContacts/>,
                 errorElement: <div>404 Not Found</div>
             },
 
