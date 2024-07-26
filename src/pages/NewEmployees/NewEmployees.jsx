@@ -3,26 +3,37 @@ import { useEffect, useState } from "react";
 /* import unknownImage from '../../assets/Unknown.jpg'
  */
 import {Accordion, AccordionItem} from "@nextui-org/react";
-import { getNewEmployees } from "../../utils/fetchData";
+import { getNewEmployees, getAllEmployeePhotos} from "../../utils/fetchData";
+import Loading from "../../components/Loading";
 
 const NewEmployees = () => {
 
     const [employees, setEmployees] = useState([]);
+    const [employeePhotos,setEmployeePhotos] = useState([]);
+
+
+    
+
+    const fetchData = async ( ) => {
+        const data = await getNewEmployees();
+        const media = await getAllEmployeePhotos();
+        setEmployees(data);
+        setEmployeePhotos(media);
+        
+    }
 
     useEffect(() => {
 
-        const fetchData = async ( ) => {
-            const data = await getNewEmployees();
-
-            setEmployees(data);
-        }
-
         fetchData();
-
+      
     },[])
 
+    console.log("employees:",employees)
+    console.log("employeePhotos:",employeePhotos)
 
-    console.log(employees)
+    if(employees.length == 0)
+        return <Loading/>
+
 
     return (
         <section className="px-[25px] sm:px-[100px] pt-[20px] mt-[15px] min-h-[600px] text-center pb-[90px]">
@@ -35,14 +46,14 @@ const NewEmployees = () => {
 
             <div className="mt-[25px] flex flex-col gap-[26px] ">
 
-                {employees.map((employee) => 
+                {employees.map((employee,index) => 
                         <Card key={employee.id} className="w-[100%]  rounded-none">
                             <CardBody>
                                 <div className="flex flex-col sm:flex-row sm:gap-[70px]">
                                     <Image
                                         alt = "employee_image"
                                         className = "object-cover rounded-none max-h-[180px] w-[100%] "
-                                        src = "https://nextui.org/images/card-example-4.jpeg"
+                                        src = {employeePhotos[index]?.link}  
                                         
                                     />
                                     

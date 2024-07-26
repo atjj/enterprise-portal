@@ -1,9 +1,8 @@
 import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue} from "@nextui-org/react";
 import { columnsOffice } from "../../constants";
-import { getOfficeContacts } from "../../utils/fetchData";
+import { getContacts} from "../../utils/fetchData";
 import { Suspense, useEffect,useState } from "react";
 import SearchInput from "../../components/SearchInput";
-
 
 
 
@@ -39,7 +38,7 @@ const  OfficeContacts = () => {
     }
 
     const fetchData = async () => {
-        const data = await getOfficeContacts();
+        const data = await getContacts('office-contacts');
         setOfficeContacts(data);
 
     }
@@ -63,6 +62,9 @@ const  OfficeContacts = () => {
     
     const sortedDepartments = Object.keys(officeContacts).sort();
     console.log(searchInput)
+
+
+  
 
     return (
         <section className = "px-[100px] pt-[20px]  min-h-[600px]">

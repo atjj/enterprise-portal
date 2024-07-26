@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 import pdfIcon from '../../assets/icons/pdf.svg';
 import doc from '../../assets/icons/doc.svg';
+import Loading from '../../components/Loading';
 
 
 
@@ -35,7 +36,7 @@ const Documents = () => {
     console.log(documents)
 
     if(documents.length == 0)
-        return <div className='text-center mx-auto border-1 w-[200px] mt-[30px]'>loading....</div>
+        return <Loading/>
     
 
     return (

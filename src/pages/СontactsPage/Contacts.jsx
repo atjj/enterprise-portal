@@ -6,6 +6,7 @@ import { getContacts } from "../../utils/fetchData";
 
 import {columnsOildepot,columnsStation } from "../../constants";
 import SearchInput from "../../components/SearchInput";
+import Loading from "../../components/Loading";
 
 
 
@@ -36,7 +37,6 @@ const Contacts = () => {
         else
             setColumns([{key: "",label: ""}]);
 
-
         fetchData(title);
     
     },[title])
@@ -48,14 +48,15 @@ const Contacts = () => {
         return contacts.filter(item =>
             item.id.toLowerCase().includes(searchInput.toLowerCase()) ||
             item.manager_fullname.toLowerCase().includes(searchInput.toLowerCase()) ||
+            item.manager_mobile_phone.toLowerCase().includes(searchInput.toLowerCase()) ||
             item.mobile_phone.toLowerCase().includes(searchInput.toLowerCase())    ||
             item.email.toLowerCase().includes(searchInput.toLowerCase())
         );
     };
 
 
-
-
+    if(contacts.length === 0)
+        return <Loading/>
 
     return (
         <section className="px-[100px] pt-[20px]  min-h-[600px]">

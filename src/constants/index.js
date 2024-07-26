@@ -68,8 +68,12 @@ export const menuItems = [
         label: "Ф.И.О управляемого"
     },
     {
+        key: "manager_mobile_phone",
+        label: "Телефон управляемого"
+    },
+    {
         key: "mobile_phone",
-        label: "Мобильный телефон"
+        label: "Телефон"
     },
     {
         key: "email",
@@ -87,8 +91,12 @@ export const menuItems = [
         label: "Ф.И.О управляемого"
     },
     {
+        key: "manager_mobile_phone",
+        label: "Телефон управляемого"
+    },
+    {
         key: "mobile_phone",
-        label: "Мобильный телефон"
+        label: "Телефон"
     },
     {
         key: "email",

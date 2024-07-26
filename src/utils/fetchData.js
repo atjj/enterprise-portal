@@ -1,7 +1,23 @@
 import { instance } from "../api/axios";
 
+
+
+
+
+
 export const getNews = async () => {
     const res = await instance.get(`/posts`,{
+      headers: {
+          'Content-Type': 'application/json',
+        },
+    });
+
+    return  res.data;
+}
+
+
+export const getNewEmployees = async () => {
+    const res = await instance.get(`/new-employees`,{
       headers: {
           'Content-Type': 'application/json',
         },
@@ -21,33 +37,37 @@ const getDocuments = async () => {
     return res.data;
 }
 
-const getDocumentById = async (id) => {
+
+const getMediaById = async (id) => {
+
     const res = await instance.get(`/media/${id}`, {
         headers: {
             'Content-Type': 'application/json',
         },
     });
-    return res.data;
+
+    if(res.data.id == id)
+      return res.data;
 };
 
 
 export const getAllDocumentsWithDetails = async () => {
     const documents = await getDocuments();
-    const documentDetailsPromises = documents.map(doc => getDocumentById(doc.acf.document));
+    const documentDetailsPromises = documents.map(doc => getMediaById(doc.acf.document));
     const documentDetails = await Promise.all(documentDetailsPromises);
+    console.log(documentDetails);
     return documentDetails;
 };
 
 
-export const getNewEmployees = async () => {
-    const res = await instance.get(`/new-employees`,{
-      headers: {
-          'Content-Type': 'application/json',
-        },
-    });
 
-    return  res.data;
-}
+export const getAllEmployeePhotos = async () => {
+    const employees = await getNewEmployees();
+    const employeeDetailsPromises = employees.map(emp => getMediaById(emp.acf.employee_photo));
+    const employeeDetails = await Promise.all(employeeDetailsPromises);
+    return employeeDetails;
+};
+
 
 
 export const getNewsById = async (id) => {
@@ -60,15 +80,18 @@ export const getNewsById = async (id) => {
     return  res.data;
 }
 
-export const getOfficeContacts = async () => {
-
-        const res = await instance.get(`/office-contacts`,{
-            headers: {
-                'Content-Type': 'application/json',
-                },
-            });
 
 
+
+export const getContacts = async (title) => {
+
+    const res = await instance.get(`/${title}`,{
+      headers: {
+          'Content-Type': 'application/json',
+        },
+    });
+
+    if(title === 'office-contacts'){
         const contacts = res.data.map(contact => ({
             key: contact.id.toString(),
             position: contact.acf.position,
@@ -90,25 +113,19 @@ export const getOfficeContacts = async () => {
         }, []);
 
         return groupedContacts;
-} 
 
-export const getContacts = async (title) => {
-    const res = await instance.get(`/${title}`,{
-      headers: {
-          'Content-Type': 'application/json',
-        },
-    });
-
-    if (title === 'station-contacts' || title === 'oil-depot-contacts') {
+    }
+    else if (title === 'station-contacts' || title === 'oil-depot-contacts') {
         return res.data.map(contact => ({
             key: contact.id.toString(),
             id: contact.acf.petrol_station_id || contact.acf.oil_depot_id,
             manager_fullname: contact.acf.manager_fullname,
-            mobile_phone: contact.acf.mobile_phone,
+            manager_mobile_phone: contact.acf.manager_mobile_phone,
+            mobile_phone: contact.acf.station_phone || contact.acf.depot_phone,
             email: contact.acf.petrol_station_email || contact.acf.oil_depot_email,
         }));
     } else {
-        return res.data;
+        return;
     }
 }
 

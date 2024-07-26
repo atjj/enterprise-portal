@@ -1,5 +1,4 @@
 import { Link, NavLink } from "react-router-dom";
-/* import login from '../assets/icons/login.svg'; */
 import mainlogo from '../assets/icons/mainlogo.png';
 import {Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem,Image} from "@nextui-org/react";
 import {useState} from "react";
