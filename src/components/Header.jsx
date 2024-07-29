@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import mainlogo from '../assets/icons/mainlogo.png';
 import {Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem,Image} from "@nextui-org/react";
 import {useState} from "react";
@@ -6,15 +6,16 @@ import { Dropdown, DropdownTrigger, DropdownMenu,DropdownItem,
   } from "@nextui-org/react";
 import { menuItems } from "../constants";
 
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
 
 
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    let location = useLocation();
 
-
-
+    console.log(location);
 
 
     return (
@@ -44,30 +45,29 @@ const Header = () => {
                     </NavbarBrand>
                 </NavbarContent>
 
-                <NavbarContent className="hidden md:flex gap-[6px]" justify = "center">
-                    <NavbarBrand>
+                <NavbarContent className="hidden md:flex gap-[4px]" justify = "center">
+{/*                     <NavbarBrand>
                         <Link to = "/">
                             <Image
                                 src= {mainlogo}
                                 width={60}
                                 />
                         </Link>        
-                    </NavbarBrand>
+                    </NavbarBrand> */}
 
                     {menuItems.map((item,index) => {
                         return (
-                            <NavbarItem key = {index}>
-
+                            <NavbarItem className = {`${location.pathname === item.href ? "bg-[var(--color-green-bold)] text-white": " "} h-full flex  items-center hover:bg-[var(--color-green-bold)] hover:text-white px-1 transition-all duration-300 ease-in-out `} key = {index}>
                                 {item.title == "Контакты" ? (
-                                    <Dropdown className="rounded-none">
-                                        <DropdownTrigger className="cursor-pointer hover:bg-gray-100 hover:text-green-700 rounded-full px-3 py-1 transition-all duration-300 ease-in-out text-[20px]">
+                                    <Dropdown className = "rounded-none ">
+                                        <DropdownTrigger className = "cursor-pointer transition-all duration-300 ease-in-out text-[20px]">
                                                 {item.title}
                                         </DropdownTrigger>
-                                            <DropdownMenu aria-label="Actions">
-                                                {item.childrens.map(({id,title,href}) => <DropdownItem key={id} textValue = {title}><NavLink to = {href} className = "text-[16px] hover:text-green-700">{title}</NavLink></DropdownItem>)}
+                                            <DropdownMenu aria-label = "Actions">
+                                                {item.childrens.map(({id,title,href}) => <DropdownItem key = {id} textValue = {title} color="success" ><Link to = {href} className = "text-[16px]">{title}</Link></DropdownItem>)}
                                             </DropdownMenu>
                                     </Dropdown>
-                                ) : (<NavLink to = {item.href} className = {({ isActive }) => `${isActive ? 'text-[var(--color-green-bold)] bg-[var(--color-yellow-medium)] text-green-700 rounded-full px-3 py-1 transition-all duration-300 ease-in-out' : 'hover:bg-gray-100 hover:text-green-700 rounded-full px-3 py-1 transition-all duration-300 ease-in-out'} text-[20px]`}>{item.title}</NavLink>)}
+                                ) : (<Link to = {item.href} className = "text-[20px]" >{item.title}</Link>)}
                             </NavbarItem>
                         )
                     })}

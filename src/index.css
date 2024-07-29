@@ -32,9 +32,19 @@
 
 
 
+
 @layer base {
     html {
       font-family: "Helvetica";
-      background-color: var(--color-grey-thin);
+    }
+
+    html::-webkit-scrollbar {
+      width: 7px;
+      background-color: #f9f9fd;
+    }
+
+    html::-webkit-scrollbar-thumb {
+      background-color: var(--color-green-bold);
+      width: 100px;
     }
   }
