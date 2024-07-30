@@ -45,26 +45,17 @@ const Header = () => {
                     </NavbarBrand>
                 </NavbarContent>
 
-                <NavbarContent className="hidden md:flex gap-[4px]" justify = "center">
-{/*                     <NavbarBrand>
-                        <Link to = "/">
-                            <Image
-                                src= {mainlogo}
-                                width={60}
-                                />
-                        </Link>        
-                    </NavbarBrand> */}
-
+                <NavbarContent className="hidden md:flex " justify = "center">
                     {menuItems.map((item,index) => {
                         return (
-                            <NavbarItem className = {`${location.pathname === item.href ? "bg-[var(--color-green-bold)] text-white": " "} h-full flex  items-center hover:bg-[var(--color-green-bold)] hover:text-white px-1 transition-all duration-300 ease-in-out `} key = {index}>
+                            <NavbarItem className = {`${window.location.pathname === item.href ? "bg-[var(--color-green-bold)] text-white ": null} h-full flex  items-center hover:bg-[var(--color-green-bold)] hover:text-white px-1 transition-all duration-300 ease-in-out `} key = {index}>
                                 {item.title == "Контакты" ? (
-                                    <Dropdown className = "rounded-none ">
+                                    <Dropdown className = "rounded-none" trigger = {"longPress"}>
                                         <DropdownTrigger className = "cursor-pointer transition-all duration-300 ease-in-out text-[20px]">
                                                 {item.title}
                                         </DropdownTrigger>
                                             <DropdownMenu aria-label = "Actions">
-                                                {item.childrens.map(({id,title,href}) => <DropdownItem key = {id} textValue = {title} color="success" ><Link to = {href} className = "text-[16px]">{title}</Link></DropdownItem>)}
+                                                {item.childrens.map(({id,title,href}) => <DropdownItem key = {id} textValue = {title}  ><Link to = {href} className = "text-[16px]">{title}</Link></DropdownItem>)}
                                             </DropdownMenu>
                                     </Dropdown>
                                 ) : (<Link to = {item.href} className = "text-[20px]" >{item.title}</Link>)}

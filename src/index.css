@@ -23,13 +23,12 @@
     --color-graphite: #606163;
     
     --color-grey: #D2D4D5;
-    --color-grey-thin: #E6E7E8;
+    --color-grey-thin: #e6e7e8;
 
 
 
 
 }
-
 
 
 
@@ -40,7 +39,6 @@
 
     html::-webkit-scrollbar {
       width: 7px;
-      background-color: #f9f9fd;
     }
 
     html::-webkit-scrollbar-thumb {

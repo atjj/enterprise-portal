@@ -46,7 +46,7 @@ const getMediaById = async (id) => {
         },
     });
 
-    if(res.data.id == id)
+    if(res.data.id && res.data.id == id)
       return res.data;
 };
 

@@ -52,7 +52,7 @@ const NewEmployees = () => {
                                 <div className="flex flex-col sm:flex-row sm:gap-[70px]">
                                     <Image
                                         alt = "employee_image"
-                                        className = "object-cover rounded-none max-h-[180px] w-[100%] "
+                                        className = "object-cover rounded-none h-[180px] w-[180px] "
                                         src = {employeePhotos[index]?.link}  
                                         
                                     />
@@ -99,5 +99,4 @@ const NewEmployees = () => {
         </section>
     );
 };
-
 export default NewEmployees; 
