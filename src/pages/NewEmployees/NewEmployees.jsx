@@ -28,8 +28,7 @@ const NewEmployees = () => {
       
     },[])
 
-    console.log("employees:",employees)
-    console.log("employeePhotos:",employeePhotos)
+
 
     if(employees.length == 0)
         return <Loading/>

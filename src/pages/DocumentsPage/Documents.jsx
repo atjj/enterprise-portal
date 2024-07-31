@@ -33,7 +33,6 @@ const Documents = () => {
         fetchData();
     },[]);
 
-    console.log(documents)
 
     if(documents.length == 0)
         return <Loading/>

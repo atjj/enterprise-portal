@@ -38,11 +38,12 @@
     }
 
     html::-webkit-scrollbar {
-      width: 7px;
+      width: 5px;
     }
 
     html::-webkit-scrollbar-thumb {
       background-color: var(--color-green-bold);
       width: 100px;
+      border-radius: 10px;
     }
   }

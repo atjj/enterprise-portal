@@ -15,8 +15,6 @@ const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     let location = useLocation();
 
-    console.log(location);
-
 
     return (
 
@@ -27,7 +25,6 @@ const Header = () => {
                 isBordered
                 isMenuOpen={isMenuOpen}
                 onMenuOpenChange={setIsMenuOpen}
-
                 >
                 <NavbarContent className="md:hidden" justify="start">
                     <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
@@ -39,7 +36,6 @@ const Header = () => {
                             <Image
                                 src = {mainlogo}
                                 width = {100}
-
                             />
                         </Link>
                     </NavbarBrand>
@@ -48,9 +44,9 @@ const Header = () => {
                 <NavbarContent className="hidden md:flex " justify = "center">
                     {menuItems.map((item,index) => {
                         return (
-                            <NavbarItem className = {`${window.location.pathname === item.href ? "bg-[var(--color-green-bold)] text-white ": null} h-full flex  items-center hover:bg-[var(--color-green-bold)] hover:text-white px-1 transition-all duration-300 ease-in-out `} key = {index}>
+                            <NavbarItem className = {`${location.pathname === item.href ? "bg-[var(--color-green-bold)] text-white ": null} h-full flex  items-center hover:bg-[var(--color-green-bold)] hover:text-white px-1 transition-all duration-300 ease-in-out `} key = {index}>
                                 {item.title == "Контакты" ? (
-                                    <Dropdown className = "rounded-none" trigger = {"longPress"}>
+                                    <Dropdown className = "rounded-none">
                                         <DropdownTrigger className = "cursor-pointer transition-all duration-300 ease-in-out text-[20px]">
                                                 {item.title}
                                         </DropdownTrigger>

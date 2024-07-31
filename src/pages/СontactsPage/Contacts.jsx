@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
 import { useParams } from "react-router";
-import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue} from "@nextui-org/react";
 import { getContacts } from "../../utils/fetchData";
 
 import {columnsOildepot,columnsStation } from "../../constants";
 import SearchInput from "../../components/SearchInput";
 import Loading from "../../components/Loading";
+import DynamicTable from "../../components/DynamicTable";
 
 
 
@@ -41,7 +41,6 @@ const Contacts = () => {
     
     },[title])
 
-    console.log(contacts)
 
 
     const filteredContacts = (contacts) => {
@@ -70,21 +69,10 @@ const Contacts = () => {
             />
 
             <div className="text-[18px] mt-[20px] mx-auto flex gap-[60px] pb-[90px]"> 
-                <Table aria-label="Example table with dynamic content" radius = "none">
-                    <TableHeader columns = {columns}>
-                        {(column) => <TableColumn  key={column.key} className="text-[16px]">{column.label}</TableColumn>}
-                    </TableHeader>
-                    <TableBody items={filteredContacts(contacts)}>
-                            {(item) => (
-                                <TableRow key={item.key}>
-                                    {(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}
-                                </TableRow>
-                        )}
-                    </TableBody>
-                </Table>               
+                <DynamicTable columns = {columns} rows = {filteredContacts(contacts)}/>          
             </div>
 
-    </section>
+        </section>
 
     )
 

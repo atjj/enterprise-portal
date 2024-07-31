@@ -1,28 +1,8 @@
-import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue} from "@nextui-org/react";
 import { columnsOffice } from "../../constants";
 import { getContacts} from "../../utils/fetchData";
 import { Suspense, useEffect,useState } from "react";
 import SearchInput from "../../components/SearchInput";
-
-
-
-
-const DynamicTable = ({columns,department}) => {
-    return (
-        <Table aria-label="Example table with dynamic content" className="mt-[10px]" radius = "none">
-            <TableHeader columns = {columns}>
-                {(column) => <TableColumn  key={column.key} className="text-[16px]">{column.label}</TableColumn>}
-            </TableHeader>
-            <TableBody items={department}>
-                    {(item) => (
-                        <TableRow key={item.key}>
-                            {(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}
-                        </TableRow>
-                    )}
-            </TableBody>
-        </Table> 
-    )
-}
+import DynamicTable from "../../components/DynamicTable";
 
 
 
@@ -43,7 +23,6 @@ const  OfficeContacts = () => {
 
     }
 
-
     const filteredContacts = (department) => {
         return department.filter(item =>
             item.fullName.toLowerCase().includes(searchInput.toLowerCase()) ||
@@ -61,7 +40,6 @@ const  OfficeContacts = () => {
 
     
     const sortedDepartments = Object.keys(officeContacts).sort();
-    console.log(searchInput)
 
 
   
@@ -85,7 +63,7 @@ const  OfficeContacts = () => {
                                 <div key = {department} >
                                     <h2 className = "text-center text-[20px] font-semibold">{department}</h2>
                                     <Suspense fallback = {<div>Loading...</div>}>
-                                        <DynamicTable columns={columnsOffice} department={filteredContacts(officeContacts[department])}/>
+                                        <DynamicTable columns = {columnsOffice} rows = {filteredContacts(officeContacts[department])}/>
                                     </Suspense>
                                 </div>
                             )
