@@ -1,5 +1,5 @@
 import { instance } from "../api/axios";
-
+import { POSTS,NEW_EMPLOYEES,DOCUMENTS,MEDIA } from "../constants";
 
 
 
@@ -7,7 +7,7 @@ import { instance } from "../api/axios";
 
 export const getNews = async () => {
     try {
-        const res = await instance.get('/posts', {
+        const res = await instance.get(POSTS, {
           headers: {
             'Content-Type': 'application/json',
           },
@@ -22,7 +22,7 @@ export const getNews = async () => {
 
 export const getNewEmployees = async () => {
     try {
-      const res = await instance.get(`/new-employees`, {
+      const res = await instance.get(NEW_EMPLOYEES, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -36,7 +36,7 @@ export const getNewEmployees = async () => {
   
   const getDocuments = async () => {
     try {
-      const res = await instance.get(`/documents`, {
+      const res = await instance.get(DOCUMENTS, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -50,7 +50,7 @@ export const getNewEmployees = async () => {
   
   const getMediaById = async (id) => {
     try {
-      const res = await instance.get(`/media/${id}`, {
+      const res = await instance.get(`${MEDIA}/${id}`, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -91,7 +91,7 @@ export const getNewEmployees = async () => {
   
   export const getNewsById = async (id) => {
     try {
-      const res = await instance.get(`/posts/${id}`, {
+      const res = await instance.get(`/${POSTS}/${id}`, {
         headers: {
           'Content-Type': 'application/json',
         },

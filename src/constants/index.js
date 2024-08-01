@@ -1,3 +1,13 @@
+
+export const POSTS = '/posts'
+export const NEW_EMPLOYEES = '/new-employees'
+export const DOCUMENTS = "/documents"
+export const MEDIA = '/media'
+
+
+
+
+
 export const menuItems = [
     {
       id: "home",
@@ -58,7 +68,7 @@ export const menuItems = [
 
 
 
-  export const columnsStation = [
+export const columnsStation = [
     {
         key: "id",
         label: "Номер АЗС"
@@ -81,7 +91,7 @@ export const menuItems = [
     }
   ];
 
-  export const columnsOildepot = [
+export const columnsOildepot = [
     {
         key: "id",
         label: "Номер Нефтебазы"
@@ -105,7 +115,7 @@ export const menuItems = [
   ];
 
 
- export const columnsOffice = [
+export const columnsOffice = [
     {
       key: "position",
       label: "Должность",
