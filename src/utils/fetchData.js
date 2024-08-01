@@ -91,7 +91,7 @@ export const getNewEmployees = async () => {
   
   export const getNewsById = async (id) => {
     try {
-      const res = await instance.get(`/${POSTS}/${id}`, {
+      const res = await instance.get(`${POSTS}/${id}`, {
         headers: {
           'Content-Type': 'application/json',
         },
